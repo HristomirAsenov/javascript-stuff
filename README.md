@@ -1,4 +1,2 @@
-# exercise-repo
-Repo made for execise
-Resolve the conflict!
-Hello again broda!
+# Exercise Stuff
+Repo made for execise...
