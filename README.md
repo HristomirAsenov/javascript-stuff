@@ -1,2 +1,1 @@
-# Exercise Stuff
-Repo made for execise...
+# JavaScript Projects
