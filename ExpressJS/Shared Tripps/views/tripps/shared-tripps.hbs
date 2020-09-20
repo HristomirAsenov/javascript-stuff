@@ -1,0 +1,25 @@
+<div class="container" style="height: 90vh;">
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+        <h1 class="display-3">Welcome ShareTrippers!</h1>
+        <p class="lead">SharedTripp is the best way to road across the country. <br> Find yours SharedTripp's
+            buddies, when you share with us yours tripp plans and let the exploration begin!</p>
+        <a href="/tripp/offer-tripp" class="btn btn-primary btn-lg">Offer Tripp!</a>
+    </header>
+
+    <!-- Page Features -->
+    <div class="row text-center">
+        {{#each tripps}}
+        {{> trippCard}}
+        {{else}}
+        <div class="row text-center">
+            <div style="width: 100%;">
+                <img style="max-width: 500px;" src="https://myrealdomain.com/images/hitchhiker-cartoon-5.png" />
+                <p class="lead" style=" width: 100%; text-align: center; font-size: 22px; font-style: italic;">
+                    Hitchhiker time...</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <!-- /.row -->
+</div>

@@ -1,0 +1,28 @@
+<section class="py-5">
+    <div class="container">
+        <h1 style="margin: 2%; text-align: center;">Register</h1>
+        <div style="padding: 5%;">
+            <form method="POST" action="/user/register">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp"
+                        placeholder="Enter email" value="{{ oldInput.email }}">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password"
+                        value="{{ oldInput.password }}">
+                </div>
+                <div class="form-group">
+                    <label for="rePassword">Re-Password</label>
+                    <input type="password" name="rePassword" class="form-control" id="rePassword"
+                        placeholder="Re-Password" value="{{ oldInput.rePassword }}">
+                </div>
+                <div class="form-group">
+                    <p>Already have account? <a href="/user/login">Login Now!</a></p>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>
