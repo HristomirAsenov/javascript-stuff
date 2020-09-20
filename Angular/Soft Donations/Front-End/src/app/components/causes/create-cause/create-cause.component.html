@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h1 class="text-italic">Creating my own cause</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="onCreateCauseHandler()">
+            <div class="form-group">
+                <label for="cause">Cause</label>
+                <input formControlName="causeName" name="causeName" type="text" id="cause" class="form-control"
+                    placeholder="My cause is ...">
+                <p invalidValidation *ngIf="causeNameErrors.errors !== null && causeNameErrors.touched">Cause name is
+                    invalid</p>
+                <p validValidation *ngIf="causeNameErrors.errors === null">Validation passed</p>
+            </div>
+            <div class="form-group">
+                <label for="neededAmount">Needed amount</label>
+                <input formControlName="neededAmount" name="neededAmount" type="number" min="10" id="neededAmount"
+                    class="form-control" placeholder="I need ...">
+                <p invalidValidation *ngIf="neededAmountErrors.errors !== null && neededAmountErrors.touched">Cause
+                    needed amount
+                    is
+                    invalid</p>
+                <p validValidation *ngIf="neededAmountErrors.errors === null">Validation passed</p>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea formControlName="description" name="description" id="description" cols="30" rows="10"
+                    class="form-control cause-description"
+                    placeholder="A little bit information about this cause. What is meaning to you?"></textarea>
+                <p invalidValidation *ngIf="descriptionErrors.errors !== null && descriptionErrors.touched">Cause
+                    description
+                    is
+                    invalid</p>
+                <p validValidation *ngIf="descriptionErrors.errors === null">Validation passed</p>
+            </div>
+            <div class="form-group">
+                <label for="imageUrl">Image URL</label>
+                <input formControlName="imageUrl" name="imageUrl" type="text" id="imageUrl" class="form-control"
+                    placeholder="https://...">
+                <p invalidValidation *ngIf="imageUrlErrors.errors !== null && imageUrlErrors.touched">Cause image
+                    is
+                    invalid</p>
+                <p validValidation *ngIf="imageUrlErrors.errors === null">Validation passed</p>
+            </div>
+            <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">Create</button>
+            <p invalidValidation *ngIf="registerForm.invalid && registerForm.touched">You can't continue until you
+                provide
+                a
+                valid data</p>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+</div>

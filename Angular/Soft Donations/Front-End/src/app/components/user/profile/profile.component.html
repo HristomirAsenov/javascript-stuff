@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-6 profile-info">
+        <div class="panel panel-default">
+            <div class="text-underline panel-body panel-primary">
+                Logged as: <span class="text-bold">{{currentlyLoggedInUser.email}}</span>
+                <button class="float-right custom-button btn btn-danger" (click)="onLogoutHandler()">Logout</button>
+            </div>
+            <div class="panel-footer">
+                <form [formGroup]="userInfo" (ngSubmit)="onChangeUserInfoHandler()">
+                    <div class="form-group">
+                        <label for="email">New address</label>
+                        <input formControlName="email" name="email" type="text" id="newEmail" class="form-control"
+                            placeholder="john.doe@domain.bg">
+                        <p invalidValidation *ngIf="emailErrors.errors !== null && emailErrors.touched">Cause name is
+                            invalid</p>
+                        <p validValidation *ngIf="emailErrors.errors === null">Validation passed</p>
+                    </div>
+                    <div formGroupName="passwords" passwordsMatch>
+                        <div class="form-group">
+                            <label for="password">New Password</label>
+                            <input formControlName="password" name="password" type="password" id="password"
+                                class="form-control" placeholder="************"
+                                [ngClass]="{ 'password-match-invalid': passwordsErrors.errors?.match, 'password-match-touched': passwordsErrors.touched }">
+                        </div>
+                        <div class="form-group">
+                            <label for="rePassword">Re-Password</label>
+                            <input formControlName="repeatPassword" name="repeatPassword" type="password"
+                                id="rePassword" class="form-control" placeholder="************"
+                                [ngClass]="{ 'password-match-invalid': passwordsErrors.errors?.match, 'password-match-touched': passwordsErrors.touched }">
+                        </div>
+
+                        <p invalidValidation *ngIf="passwordsErrors.invalid && passwordsErrors.touched">Passwords didn't
+                            matched</p>
+                        <p validValidation *ngIf="passwordsErrors.valid && passwordsErrors.touched">Validations passed
+                        </p>
+                    </div>
+
+                    <button [disabled]="userInfo.invalid" type="submit" class="btn btn-primary">Change
+                        profile information</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <profile-causes [myOwnCauses]="profileCauses.myOwn" [causesIDonatedTo]="profileCauses.donatedTo"></profile-causes>
+</div>

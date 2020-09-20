@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-md-4">
+        <h1>Causes</h1>
+        <p *ngIf="isLoading">Loading... Please wait.</p>
+        <ng-container *ngIf="causes">
+            <app-cause-list [causes]="causes" (click)="setCauseDetails($event)"></app-cause-list>
+        </ng-container>
+    </div>
+    <div class="col-md-8">
+        <app-cause-detail [causeForDetails]="causeForDetails"></app-cause-detail>
+    </div>
+</div>

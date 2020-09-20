@@ -1,0 +1,27 @@
+<div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="text-center">{{ cause.cause }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <img [src]="cause.imageUrl" alt="" class="img-responsive img-details">
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 cause-description">{{ cause.description }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <p class="text-bold amount">
+                <span [ngClass]="getCurrentColor()">${{ cause.collectedAmount }}</span>
+                from
+                <span>$</span>{{ cause.neededAmount }}
+            </p>
+        </div>
+    </div>
+    <make-donation [id]="cause._id"></make-donation>
+    <hr>
+</div>

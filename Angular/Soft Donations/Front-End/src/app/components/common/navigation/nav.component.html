@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a routerLink="" class="navbar-brand">Soft Donations</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li *ngIf="isLoggedIn">
+                    <a routerLink="/create-cause">Create cause</a>
+                </li>
+                <li *ngIf="!isLoggedIn; else loggedInCase" class="dropdown">
+                    <a routerLink="/user" class="dropdown-toggle" role="button">User</a>
+                </li>
+
+                <ng-template #loggedInCase>
+                    <li class="dropdown">
+                        <a routerLink="/user/profile" class="dropdown-toggle" role="button">Profile</a>
+                    </li>
+                </ng-template>
+            </ul>
+        </div>
+    </div>
+</nav>

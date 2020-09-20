@@ -1,0 +1,5 @@
+.pull-right img{
+    max-height: 100;
+    display: block;
+    border-radius: 6px;
+}

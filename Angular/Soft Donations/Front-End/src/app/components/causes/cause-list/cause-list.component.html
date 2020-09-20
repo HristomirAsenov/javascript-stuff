@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-xs-12">
+        <app-cause-item
+            *ngFor="let cause of causes"
+            [cause]="cause"
+            (click)="setNewCauseDetails(cause)">
+        </app-cause-item>
+    </div>
+</div>

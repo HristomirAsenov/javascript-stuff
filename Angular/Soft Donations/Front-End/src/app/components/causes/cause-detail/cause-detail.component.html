@@ -1,0 +1,27 @@
+<div *ngIf="checkForDetails()">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="text-center">{{ causeForDetails.cause }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <img [src]="causeForDetails.imageUrl" alt="" class="img-responsive img-details">
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 cause-description">{{ causeForDetails.description }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <p class="text-bold amount">
+                <span [ngClass]="getCurrentColor()">${{ causeForDetails.collectedAmount }}</span>
+                from
+                <span>$</span>{{ causeForDetails.neededAmount }}
+            </p>
+        </div>
+    </div>
+    <make-donation [id]="causeForDetails._id"></make-donation>
+    <hr>
+</div>

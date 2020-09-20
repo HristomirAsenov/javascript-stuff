@@ -1,0 +1,23 @@
+<div class="col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-body panel-primary">
+        </div>
+        <div class="panel-footer">
+            <div class="panel panel-default">
+                <div class="panel-body panel-primary">
+                    My own causes: [{{myOwnCauses.length}}]
+                </div>
+
+                <listed-causes [causes]="myOwnCauses"></listed-causes>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body panel-primary">
+                    Causes I have contributed to: [{{causesIDonatedTo.length}}]
+                </div>
+
+                <listed-causes [causes]="causesIDonatedTo"></listed-causes>
+            </div>
+        </div>
+    </div>
+</div>

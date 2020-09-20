@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form #donationForm="ngForm" (ngSubmit)="onDonationHandler(donationForm)" class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="donatedAmount"></label>
+                <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input #donatedAmountInput="ngModel" ngModel type="text" name="donatedAmount" required
+                        pattern="[1-9][0-9]+" class="form-control" id="donatedAmount" placeholder="Amount">
+                    <div class="input-group-addon">.00</div>
+                </div>
+            </div>
+            <button [disabled]="donationForm.invalid" type="submit" class="btn btn-success">Make donation</button>
+            <p invalidValidation *ngIf="donationForm.invalid && donationForm.touched">You can't donate amount less than 10$</p>
+            <p validValidation *ngIf="donationForm.valid && donationForm.touched">Cool. Now make someone a little bit happier!</p>
+        </form>
+    </div>
+</div>

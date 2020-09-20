@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h1 class="text-italic">Register</h1>
+        <form #registerForm="ngForm" (ngSubmit)="onRegisterHandler(registerForm)">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input #inputEmail="ngModel" ngModel required name="email" type="text" id="email" class="form-control"
+                    placeholder="john.doe@domain.bg" pattern="^.{6,}@gmail\.(bg|com)$">
+                <p invalidValidation *ngIf="inputEmail.invalid && inputEmail.touched">
+                    Invalid email</p>
+                <p validValidation *ngIf="inputEmail.valid && inputEmail.touched">Validation passed</p>
+            </div>
+            <div #passwords="ngModelGroup" ngModelGroup="passwords" passwordsMatch>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input #inputPassword="ngModel" ngModel name="password" type="password" id="password"
+                        class="form-control" placeholder="************" required>
+                </div>
+                <div class="form-group">
+                    <label for="rePassword">Re-Password</label>
+                    <input #inputRepeatPassword="ngModel" ngModel name="repeatPassword" type="password" id="rePassword"
+                        class="form-control" placeholder="************" required>
+                </div>
+                <p invalidValidation
+                    *ngIf="passwords?.errors?.match && inputPassword.touched && inputRepeatPassword.touched">Passwords
+                    didn't matched</p>
+                <p validValidation *ngIf="passwords.valid">Validations passed</p>
+            </div>
+            <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">Register</button>
+            <p invalidValidation *ngIf="registerForm.invalid && registerForm.touched">You can't continue until you
+                provide
+                a
+                valid data</p>
+        </form>
+        <p>Already Registered? <a routerLink="/user/login">Login</a>.</p>
+    </div>
+</div>
